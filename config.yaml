@@ -1,0 +1,28 @@
+project:
+  name: "actuarial-project-template"
+  currency: "EUR"
+
+data:
+  input_format: "csv"   # csv or xlsx
+  encoding: "utf-8"
+
+cleaning:
+  # common dirty-data handling
+  drop_duplicates: true
+  missing_age_strategy: "drop"       # drop | impute_median
+  missing_salary_strategy: "impute_median"
+  max_age: 75
+  min_age: 18
+
+pricing:
+  waiting_period_days: 30
+  max_daily_benefit: 1095
+  expense_ratio: 0.18
+  profit_margin: 0.03
+
+reserving:
+  method_defaults:
+    chain_ladder: true
+    bornhuetter_ferguson: false
+    benktander: false
+    aplr: false
